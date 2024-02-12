@@ -1,0 +1,33 @@
+{
+  "name": "@stack-note/schema",
+  "main": "dist/typescript/index.js",
+  "types": "dist/typescript/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm run build:clean && concurrently pnpm:build:typescript pnpm:build:kotlin",
+    "build:clean": "rm -rf ./dist",
+    "build:typescript": "pnpm run build:typescript:prepare && pnpm run build:typescript:proto && pnpm run build:typescript:declaration && pnpm run build:typescript:bundle",
+    "build:typescript:prepare": "mkdir -p ./dist/generated/typescript",
+    "build:typescript:proto": "protoc --proto_path=src --ts_proto_out=dist/generated/typescript --ts_proto_opt=exportCommonSymbols=false --ts_proto_opt=outputIndex=true --ts_proto_opt=forceLong=bigint --ts_proto_opt=esModuleInterop=true ./src/App.proto",
+    "build:typescript:declaration": "tsc -p tsconfig.build.json",
+    "build:typescript:bundle": "rollup --configPlugin rollup-plugin-esbuild -c rollup.config.ts",
+    "build:kotlin": "pnpm run build:kotlin:prepare && pnpm run build:kotlin:proto",
+    "build:kotlin:prepare": "mkdir -p ./dist/kotlin",
+    "build:kotlin:proto": "protoc --proto_path=src --ts_proto_out=dist/kotlin ./src/App.proto"
+  },
+  "devDependencies": {
+    "@protobuf-ts/protoc": "^2.9.3",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "concurrently": "^8.2.2",
+    "esbuild": "^0.20.0",
+    "rollup": "^4.10.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "ts-proto": "^1.167.3",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "long": "^5.2.3",
+    "protobufjs": "^7.2.6"
+  }
+}

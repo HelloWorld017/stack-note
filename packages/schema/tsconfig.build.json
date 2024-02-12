@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.build-base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declarationDir": "./dist/generated/typescript-declarations"
+  },
+  "include": [
+    "dist/generated/typescript/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

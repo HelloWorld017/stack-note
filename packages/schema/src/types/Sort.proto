@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+enum SortKind {
+  SORT_CREATED_AT = 0;
+}
+
+enum SortOrder {
+  SORT_ORDER_ASCENDING = 0;
+  SORT_ORDER_DESCENDING = 1;
+}
+
+message Sort {
+  SortKind kind = 1;
+  SortOrder order = 2;
+}

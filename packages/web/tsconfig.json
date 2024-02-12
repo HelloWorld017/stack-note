@@ -1,0 +1,32 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["esnext", "dom"],
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "types": [
+      "solid-js",
+      "vite-plugin-solid-svg/types-component-solid"
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules",
+      "./src/definitions"
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    ".eslintrc.cjs",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "vite.config.ts"
+  ],
+  "exclude": [
+    "examples",
+    "node_modules",
+    "dist/**"
+  ]
+}

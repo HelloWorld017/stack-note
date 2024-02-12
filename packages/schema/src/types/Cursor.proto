@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+enum CursorKind {
+  CURSOR_BEFORE = 0;
+  CURSOR_AFTER = 1;
+}
+
+message Cursor {
+  CursorKind kind = 1;
+  uint64 timestamp = 2;
+  string last_id = 3;
+  optional uint32 limit = 4;
+}

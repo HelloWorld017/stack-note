@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message CreateNoteRequest {
+  string title = 1;
+  string content = 2;
+}
+
+message CreateNoteResponse {
+  bool ok = 1;
+  string id = 2;
+}

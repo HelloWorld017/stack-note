@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message DeleteNoteRequest {
+  string id = 1;
+}
+
+message DeleteNoteResponse {
+  bool ok = 1;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "types/Cursor.proto";
+import "types/Note.proto";
+import "types/Sort.proto";
+
+message ListStackRequest {
+  Cursor cursor = 1;
+  Sort sort = 2;
+}
+
+message ListStackResponse {
+  bool ok = 1;
+  repeated NotePreview result = 2;
+  uint64 count = 3;
+
+  Cursor prev_cursor = 4;
+  Cursor next_cursor = 5;
+}

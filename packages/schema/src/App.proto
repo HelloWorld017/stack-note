@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "messages/ArchiveNote.proto";
+import "messages/CreateNote.proto";
+import "messages/DeleteNote.proto";
+import "messages/ListStack.proto";
+
+service App {
+  rpc ArchiveNote(ArchiveNoteRequest) returns (ArchiveNoteResponse);
+  rpc CreateNote(CreateNoteRequest) returns (CreateNoteResponse);
+  rpc DeleteNote(DeleteNoteRequest) returns (DeleteNoteResponse);
+  rpc ListStack(ListStackRequest) returns (ListStackResponse);
+}
